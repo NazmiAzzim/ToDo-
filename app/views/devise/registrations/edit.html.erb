@@ -1,0 +1,45 @@
+<h2>Edit <%= resource_name.to_s.humanize %>'s Profile</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.email_field :email, autofocus: true %>
+  </div><br>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :new_password %><br>
+    <%= f.password_field :new_password, autocomplete: "off" %>
+    <% if @minimum_password_length %>
+      <br />
+      <em>*<%= @minimum_password_length %> characters minimum*</em>
+    <% end %>
+  </div><br>
+
+  <div class="field">
+    <%= f.label :new_password_confirmation %><br>
+    <%= f.password_field :new_password_confirmation, autocomplete: "off" %>
+  </div>
+  <i>*leave (both) blank if you don't want to change it*</i><br><br>
+
+  <div class="field">
+    <%= f.label :current_password %><br>
+    <%= f.password_field :current_password, autocomplete: "off" %>
+  </div><i>(Required to confirm the changes)</i><br><br>
+
+  <div class="actions">
+    <%= f.submit "Update", data: { confirm: "Are you sure?" } %>
+  </div>
+<% end %><br>
+
+<strong><font color="red"><a class="btn btn-danger"><i class="fa fa-trash-o fa-lg"></i><%= link_to " Delete this account?", registration_path(resource_name), data: { confirm: "You're going to delete your current account, Are you sure?" }, method: :delete, style: "color:red" %></a></font></strong>
+</div>
+
+<div class="links">
+<%= link_to "Back", users_show_path %> | <%= link_to "Home", todo_lists_path %>
+</div><br>

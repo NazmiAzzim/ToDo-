@@ -1,0 +1,45 @@
+<font color="black">
+<h1><strong>USER DETAILS</strong></h1>
+<div class="container">
+<div class="table-responsive">
+      <table class="table">
+      <tbody>
+      <tr>
+      <td><font color="black"><strong>Email:</strong></font></td>
+      <td><font color="black"><%= current_user.email %></font></td>
+      </tr>
+
+      <tr>
+      <td><font color="black"><strong>Number of todo_list:</strong></font></td>
+      <td><font color="black"><%= current_user.todo_lists.count %></font></td>
+      </tr>
+
+      <tr>
+      <td><font color="black"><strong>User ID:</strong></font></td>
+      <td><font color="black"><%= current_user.id %></font></td>
+      </tr>
+
+      <tr>
+      <td><font color="black"><strong>Last Login:</strong></font></td>
+      <td><font color="black"><%= current_user.last_sign_in_at %></font></td>
+      </tr>
+
+      <tr>
+      <td><font color="black"><strong>Signed on:</strong></font></td>
+      <td><font color="black"><%= current_user.updated_at %></font></td>
+      </tr>
+
+      <tr>
+      <td><font color="black"><strong>Total signed in:</strong></font></td>
+      <td><font color="black"><%= current_user.sign_in_count %></font></td>
+      </tr>
+
+      </tbody>
+      </table>
+      </div>
+      </div>
+      </font>
+
+<div class="links">
+<%= link_to 'Edit', edit_user_registration_path %> | <%= link_to 'Back', todo_lists_path %> 
+</div>	

@@ -1,0 +1,24 @@
+<% if @todo_list.user_id == current_user.id %>
+
+<h2 class="todo_list_title"><%= @todo_list.title %></h2>
+<p class="todo_list_sub_title"><%= @todo_list.description %></p>
+
+<div id="todo_items_wrapper">
+	<%= render @todo_list.todo_items %>
+	<div id="form">
+		<%= render "todo_items/form" %>
+	</div> 
+</div>
+
+<div class="links">
+	<%= link_to 'Edit', edit_todo_list_path %> |
+	<%= link_to 'Back', todo_lists_path %> |
+	<%= link_to 'Delete', todo_list_path, method: :delete, data: {confirm: "Are you sure?" } %>
+</div>
+
+<% else %>
+<font color="red"><br><strong><h2>BLOCKED!</h2></strong><br><%= flash[:failed] = "You're PROHIBITED to authorize other user todo lists!" %></font><br>
+<div class="links">
+| <%= link_to 'Back', todo_lists_path %> |
+</div>
+<% end %>

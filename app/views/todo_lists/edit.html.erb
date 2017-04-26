@@ -1,0 +1,21 @@
+<% if @todo_list.user_id == current_user.id %>
+
+<h1 class="todo_list_title">Edit Todo List</h1>
+
+<div class="forms">
+	<%= render 'form', todo_list: @todo_list %>
+</div>
+
+<div class="links">
+<%= link_to 'Cancel', @todo_list %>
+</div>
+
+<% else %>
+
+<font color="red"><br><strong><h2>BLOCKED!</h2></strong><br><%= flash[:failed] = "You're PROHIBITED to authorize other user todo lists!" %></font><br>
+
+<div class="links">
+| <%= link_to 'Back', todo_lists_path %> |
+</div>
+
+<% end %>
